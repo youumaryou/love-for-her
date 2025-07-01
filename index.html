@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Насте 💖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #ffe0ec, #d0f1ff);
+      scroll-behavior: smooth;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .section1 {
+      background: linear-gradient(180deg, #ffe0ec 0%, #f9f0ff 100%);
+    }
+
+    .section2 {
+      background: linear-gradient(180deg, #d0f1ff 0%, #fff0f5 100%);
+    }
+
+    .section3 {
+      background: linear-gradient(180deg, #fff0f5 0%, #f0fff0 100%);
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #e91e63;
+      animation: fadeInDown 1.2s ease-out;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: #444;
+      margin: 15px 0;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .quote {
+      font-size: 1.1rem;
+      color: #b71c1c;
+      margin: 15px 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease-in forwards;
+    }
+
+    .quote:nth-child(3) { animation-delay: 1s; }
+    .quote:nth-child(4) { animation-delay: 2s; }
+    .quote:nth-child(5) { animation-delay: 3s; }
+
+    .footer {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 30px;
+      opacity: 0;
+      animation: fadeIn 3s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .float-emoji {
+      position: absolute;
+      opacity: 0.7;
+      animation: floatUp 12s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-1000px); opacity: 0; }
+    }
+
+    .heart, .star, .flower {
+      width: 24px;
+      height: 24px;
+    }
+
+    .heart {
+      background-color: red;
+      transform: rotate(45deg);
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -12px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -12px;
+    }
+
+    .star {
+      background: gold;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%,
+                         79% 91%, 50% 70%, 21% 91%, 32% 57%,
+                         2% 35%, 39% 35%);
+    }
+
+    .flower {
+      background: pink;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px white, 8px 0 0 4px white,
+                  -8px 0 0 4px white, 0 8px 0 4px white,
+                  0 -8px 0 4px white;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+      .quote {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="section1">
+    <h1>🌸 Привет, Настя 🌸</h1>
+    <h2>Этот сайт — маленький подарок тебе 💖</h2>
+    <div class="quote">"Ты не просто прекрасна — ты вдохновляешь."</div>
+    <div class="quote">"Твоя улыбка — мой любимый момент дня."</div>
+    <div class="quote">"Мир стал ярче с тех пор, как я тебя встретил."</div>
+    <div class="quote">"Ты — как рассвет: тихая, тёплая и бесконечно красивая."</div>
+  </section>
+
+  <section class="section2">
+    <h1>✨ Каждый момент с тобой — как магия ✨</h1>
+    <h2>Спасибо, что ты есть.</h2>
+    <div class="quote">"Ты умеешь делать обычное — волшебным."</div>
+    <div class="quote">"В мире миллиард людей, но ты — одна такая."</div>
+    <div class="quote">"Ты как песня, которую не хочется выключать."</div>
+  </section>
+
+  <section class="section3">
+    <h1>💌 Я просто хотел сказать...</h1>
+    <h2>Ты заслуживаешь всего самого красивого.</h2>
+    <div class="footer">С любовью — от Spider man 🌟</div>
+  </section>
+
+  <script>
+    const emojis = ['heart', 'star', 'flower'];
+
+    function createEmoji() {
+      const el = document.createElement('div');
+      const type = emojis[Math.floor(Math.random() * emojis.length)];
+      el.classList.add('float-emoji', type);
+      el.style.left = Math.random() * window.innerWidth + 'px';
+      el.style.top = (window.scrollY + window.innerHeight * Math.random()) + 'px';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 15000);
+    }
+
+    setInterval(createEmoji, 300);
+  </script>
+
+</body>
+</html>
